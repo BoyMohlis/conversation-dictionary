@@ -1,0 +1,12 @@
+[
+  { "kalimat": "Good morning", "arti": "Selamat pagi" },
+  { "kalimat": "What time is it?", "arti": "Jam berapa sekarang?" },
+  { "kalimat": "I am hungry", "arti": "Saya lapar" },
+  { "kalimat": "See you tomorrow", "arti": "Sampai jumpa besok" },
+  { "kalimat": "Can you help me?", "arti": "Bisakah kamu membantuku?" },
+  { "kalimat": "Thank you", "arti": "Terima kasih" },
+  { "kalimat": "Where are you going?", "arti": "Mau ke mana kamu?" },
+  { "kalimat": "I do not understand", "arti": "Saya tidak mengerti" },
+  { "kalimat": "How much is this?", "arti": "Berapa harganya?" },
+  { "kalimat": "Nice to meet you", "arti": "Senang bertemu denganmu" }
+]

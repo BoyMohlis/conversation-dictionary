@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kamus Interaktif</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .filter-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 15px;
+    }
+    .filter-buttons button {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 6px;
+      background: #ddd;
+      cursor: pointer;
+    }
+    .filter-buttons button.active {
+      background: #333;
+      color: white;
+    }
+    .sentence-card {
+      background: white;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .sentence {
+      font-size: 1.2em;
+    }
+    .arti {
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .tts-buttons button {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 6px;
+      background: #eee;
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    .pagination {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .pagination button {
+      padding: 6px 10px;
+      margin: 0 4px;
+      border: none;
+      border-radius: 6px;
+      background: #eee;
+      cursor: pointer;
+    }
+    .pagination button.active {
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>📘 Kamus Interaktif</h1>
+
+  <div class="search-bar">
+    <input type="text" id="search" placeholder="🔍 Cari kalimat atau arti...">
+  </div>
+
+  <div class="filter-buttons" id="filter"></div>
+
+  <div id="sentence-list"></div>
+
+  <div class="pagination" id="pagination"></div>
+
+  <script>
+    let allSentences = [];
+    let filtered = [];
+    let voices = [];
+    let currentPage = 1;
+    const perPage = 5;
+
+    function loadVoices() {
+      voices = speechSynthesis.getVoices();
+    }
+    speechSynthesis.onvoiceschanged = loadVoices;
+
+    function speak(text, lang) {
+      const utter = new SpeechSynthesisUtterance(text);
+      const voice = voices.find(v => v.lang === lang);
+      if (voice) utter.voice = voice;
+      speechSynthesis.speak(utter);
+    }
+
+    function renderFilterButtons() {
+      const container = document.getElementById("filter");
+      container.innerHTML = "";
+      const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+      const allBtn = document.createElement("button");
+      allBtn.textContent = "All";
+      allBtn.onclick = () => {
+        currentPage = 1;
+        filtered = [...allSentences];
+        renderList();
+        highlightFilter('');
+      };
+      container.appendChild(allBtn);
+
+      letters.forEach(letter => {
+        const btn = document.createElement("button");
+        btn.textContent = letter;
+        btn.onclick = () => {
+          currentPage = 1;
+          filtered = allSentences.filter(item => item.kalimat.toUpperCase().startsWith(letter));
+          renderList();
+          highlightFilter(letter);
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function highlightFilter(letter) {
+      document.querySelectorAll('.filter-buttons button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toUpperCase() === letter || (letter === '' && btn.textContent === 'All')) {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    function renderList() {
+      const container = document.getElementById("sentence-list");
+      container.innerHTML = "";
+
+      const start = (currentPage - 1) * perPage;
+      const end = start + perPage;
+      const pageItems = filtered.slice(start, end);
+
+      pageItems.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "sentence-card";
+        card.innerHTML = `
+          <div class="sentence">${item.kalimat}</div>
+          <div class="arti">${item.arti}</div>
+          <div class="tts-buttons">
+            <button onclick="speak('${item.kalimat}', 'en-GB')">🇬🇧 <i class="fa fa-volume-high"></i></button>
+            <button onclick="speak('${item.kalimat}', 'en-US')">🇺🇸 <i class="fa fa-volume-high"></i></button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const totalPages = Math.ceil(filtered.length / perPage);
+      const container = document.getElementById("pagination");
+      container.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement("button");
+        btn.textContent = i;
+        if (i === currentPage) btn.classList.add("active");
+        btn.onclick = () => {
+          currentPage = i;
+          renderList();
+        };
+        container.appendChild(btn);
+      }
+    }
+
+    document.getElementById("search").addEventListener("input", function() {
+      const query = this.value.toLowerCase();
+      currentPage = 1;
+      filtered = allSentences.filter(item =>
+        item.kalimat.toLowerCase().includes(query) ||
+        item.arti.toLowerCase().includes(query)
+      );
+      renderList();
+    });
+
+    fetch("daftar_inggris.json")
+      .then(res => res.json())
+      .then(data => {
+        allSentences = data;
+        filtered = [...allSentences];
+        loadVoices();
+        renderFilterButtons();
+        highlightFilter('');
+        renderList();
+      });
+  </script>
+</body>
+</html>

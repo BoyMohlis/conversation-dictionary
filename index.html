@@ -104,19 +104,34 @@
     function loadVoices() {
       voices = speechSynthesis.getVoices();
     }
+    // Inisialisasi suara
     speechSynthesis.onvoiceschanged = loadVoices;
 
+    // Fungsi TTS aman untuk Chrome
     function speak(text, lang) {
-      const utter = new SpeechSynthesisUtterance(text);
-      const voice = voices.find(v => v.lang === lang);
-      if (voice) utter.voice = voice;
-      speechSynthesis.speak(utter);
+      function doSpeak() {
+        const utter = new SpeechSynthesisUtterance(text);
+        const voice = voices.find(v => v.lang === lang);
+        if (voice) utter.voice = voice;
+        speechSynthesis.speak(utter);
+      }
+
+      if (voices.length === 0) {
+        // Jika belum tersedia, tunggu onvoiceschanged
+        speechSynthesis.onvoiceschanged = () => {
+          voices = speechSynthesis.getVoices();
+          doSpeak();
+        };
+      } else {
+        doSpeak();
+      }
     }
 
     function renderFilterButtons() {
       const container = document.getElementById("filter");
       container.innerHTML = "";
       const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
       const allBtn = document.createElement("button");
       allBtn.textContent = "All";
       allBtn.onclick = () => {

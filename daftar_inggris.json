@@ -8,13 +8,13 @@
   { "kalimat": "Where are you going?", "arti": "Mau ke mana kamu?" },
   { "kalimat": "I do not understand", "arti": "Saya tidak mengerti" },
   { "kalimat": "How much is this?", "arti": "Berapa harganya?" },
-  { "kalimat": "Nice to meet you", "arti": "Senang bertemu denganmu" }
-    { "kalimat": "Wanna hang out later?", "arti": "Mau nongkrong nanti?" }
-    { "kalimat": "What are you up to this weekend?", "arti": "Weekend ini sibuk apa?" }
-    { "kalimat": "Got any plans for tonight", "arti": "Ada rencana buat malam ini?" }
-    { "kalimat": "Let's grab a coffee sometime!", "arti": "Yuk ngopi bareng kapan-kapan!" }
-    { "kalimat": "Are you free tomorrow?", "arti": "Lo kosong besok?" }
-    { "kalimat": "Let's do something fun this weekeend!", "arti": "Ayo lakuin sesuatu yang seru weekend ini!" }
-    { "kalimat": "How about a movie night?", "arti": "Gimana kalau kita nonton bareng?" }
+  { "kalimat": "Nice to meet you", "arti": "Senang bertemu denganmu" },
+    { "kalimat": "Wanna hang out later?", "arti": "Mau nongkrong nanti?" },
+    { "kalimat": "What are you up to this weekend?", "arti": "Weekend ini sibuk apa?" },
+    { "kalimat": "Got any plans for tonight", "arti": "Ada rencana buat malam ini?" },
+    { "kalimat": "Let's grab a coffee sometime!", "arti": "Yuk ngopi bareng kapan-kapan!" },
+    { "kalimat": "Are you free tomorrow?", "arti": "Lo kosong besok?" },
+    { "kalimat": "Let's do something fun this weekeend!", "arti": "Ayo lakuin sesuatu yang seru weekend ini!" },
+    { "kalimat": "How about a movie night?", "arti": "Gimana kalau kita nonton bareng?" },
     { "kalimat": "Let's catch up soon!", "arti": "Yuk, ketemuan buat ngobrol-ngobrol!" }
 ]

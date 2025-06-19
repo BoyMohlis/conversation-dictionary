@@ -79,9 +79,64 @@
       background: #333;
       color: white;
     }
+/*menu kanan*/
+    .wrapper {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #333;
+      color: white;
+      padding: 1em;
+      position: fixed;
+      top: 0;
+      left: -280px;
+      z-index: 1000;
+      transition: left 0.3s ease;
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar h2 {
+      color: #fff;
+    }
+
+    .sidebar a {
+      display: block;
+      color: #ccc;
+      padding: 10px 0;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      color: #fff;
+    }
   </style>
 </head>
 <body>
+  <div class="menu-btn" onclick="toggleSidebar()">☰</div>
+
+  <div class="sidebar" id="sidebar">
+    <br><h2>Menu</h2>
+    <a href="index.html">Beranda</a>
+    <a href="latihan01.html">Latihan 1 video 45</a>
+    <a href="latihan02.html">Latihan 2 video 70</a>
+    <a href="latihan03.html">Latihan 3 video 50</a>
+    <a href="latihan04.html">Latihan 4 video 54</a>
+    <a href="latihan05.html">Latihan 5 video 51</a>
+    <a href="latihan06.html">Latihan 6 video 52</a>
+    <a href="latihan07.html">Latihan 7 video 44</a>
+    <a href="help.html">Tentang</a>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+  
   <h1>📘 Kamus Interaktif</h1>
 
   <div class="search-bar">
@@ -227,5 +282,15 @@
         renderList();
       });
   </script>
+
+    <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+
+      sidebar.classList.toggle("open");
+      overlay.classList.toggle("active");
+    }
+    </script>
 </body>
 </html>

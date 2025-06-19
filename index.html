@@ -117,6 +117,43 @@
     .sidebar a:hover {
       color: #fff;
     }
+
+        /* Overlay (untuk HP) */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+
+    .menu-btn {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1100;
+      background: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      padding: 60px 1rem 1rem 1rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+      width: 100%;
+    }
   </style>
 </head>
 <body>

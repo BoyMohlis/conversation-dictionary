@@ -12,9 +12,18 @@
     { "kalimat": "Wanna hang out later?", "arti": "Mau nongkrong nanti?" },
     { "kalimat": "What are you up to this weekend?", "arti": "Weekend ini sibuk apa?" },
     { "kalimat": "Got any plans for tonight", "arti": "Ada rencana buat malam ini?" },
-    { "kalimat": "Let's grab a coffee sometime!", "arti": "Yuk ngopi bareng kapan-kapan!" },
+    { "kalimat": "Let is grab a coffee sometime!", "arti": "Yuk ngopi bareng kapan-kapan!" },
     { "kalimat": "Are you free tomorrow?", "arti": "Lo kosong besok?" },
-    { "kalimat": "Let's do something fun this weekeend!", "arti": "Ayo lakuin sesuatu yang seru weekend ini!" },
+    { "kalimat": "Let is do something fun this weekeend!", "arti": "Ayo lakuin sesuatu yang seru weekend ini!" },
     { "kalimat": "How about a movie night?", "arti": "Gimana kalau kita nonton bareng?" },
-    { "kalimat": "Let's catch up soon!", "arti": "Yuk, ketemuan buat ngobrol-ngobrol!" }
+    { "kalimat": "Let is catch up soon!", "arti": "Yuk, ketemuan buat ngobrol-ngobrol!" },
+    { "kalimat": "We should plan a trip!", "arti": "Kita harus rencanain trip nih!" },
+    { "kalimat": "Feel like going out tonight?", "arti": "Mau keluar malam ini?" },
+    { "kalimat": "I was thinking of going to the mall, Wanna come?", "arti": "Gue kepikiran ke mall, mau ikut?" },
+    { "kalimat": "Up for some food later?", "arti": "Mau makan bareng nanti?" },
+    { "kalimat": "Let is go on an adventure!", "arti": "Ayo cari petualangan!" },
+    { "kalimat": "What time works for you?", "arti": "Jam berapa yang cocok buat lo?" },
+      { "kalimat": "Where should we meet?", "arti": "Kita ketemuan di mana?" },
+      { "kalimat": "Let is meet at 6!", "arti": "Yuk, ketemuan jam 6!" },
+      { "kalimat": "Let is catch up soon!", "arti": "Yuk, ketemuan buat ngobrol-ngobrol!" }
 ]

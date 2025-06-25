@@ -40,5 +40,13 @@
   { "kalimat": "Sorry, I have to cancel", "arti": "Maaf, gue harus batalin." },
   { "kalimat": "Can we push it to tomorrow", "arti": "Bisa kita undur ke besok?" },
   { "kalimat": "I might be late.", "arti": "Gue mungkin bakal telat." },
-  { "kalimat": "Let us rain check that", "arti": "Tunda dulu deh, ya?" }
+  { "kalimat": "Let us rain check that", "arti": "Tunda dulu deh, ya?" },
+  { "kalimat": "Sorry, I can not make it today", "arti": "Maaf, gue tidak bisa hari ini" },
+  { "kalimat": "Let us do it another time", "arti": "Lain kali aja, ya?" },
+  { "kalimat": "I will let you know if I can make it.", "arti": "Gue kabarin lagi kalau bisa." },
+  { "kalimat": "Can we do a different time?", "arti": "Bisa ganti waktu nggak?" },
+  { "kalimat": "I won not be able to make it.", "arti": "Kayaknya gue nggak bisa datang." },
+  { "kalimat": "Let us plan for next time", "arti": "kita rencanain lain kali aja" },
+  { "kalimat": "I am so sorry, but I have to bail", "arti": "Maaf banget, tapi gue harus batal" },
+  { "kalimat": "Hope we can do this another day!", "arti": "Semoga bisa lain kali ya!" }
 ]
